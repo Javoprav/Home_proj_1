@@ -1,12 +1,17 @@
-# кейс 4: вывод >> B process()
+# кейс 5: вывод >> B process()
 class A:
-    pass
+    def process(self):
+        print('A process()')
 class B:
     def process(self):
         print('B process()')
 class C(A, B):
     def process(self):
         print('C process()')
-obj = C()
+class D(C, B):    # class D(B, C): >> ошибка mro
+    pass
+
+obj = D()
+# obj = C()
 obj.process()
 
